@@ -26,8 +26,8 @@ public class flaregun : MonoBehaviour {
 	void Update () 
 	{
 		
-		//if(Input.GetButtonDown("Fire1") && !GetComponent<Animation>().isPlaying)
-		if(Input.GetKeyDown("space") && !GetComponent<Animation>().isPlaying)
+		
+		if(currentRound>0)
 		{
 			//if(currentRound > 0){
 				Shoot();
@@ -36,15 +36,15 @@ public class flaregun : MonoBehaviour {
 			//	GetComponent<AudioSource>().PlayOneShot(noAmmoSound);
 			//}
 		}
-		if(Input.GetKeyDown(KeyCode.R) && !GetComponent<Animation>().isPlaying)
-		{
-			Reload();
+		//if(Input.GetKeyDown(KeyCode.R) && !GetComponent<Animation>().isPlaying)
+		//{
+		//	Reload();
 			
-		}
+		//}
 	
 	}
 	
-	void Shoot()
+	public void Shoot()
 	{
 			currentRound--;
 		if(currentRound <= 0){

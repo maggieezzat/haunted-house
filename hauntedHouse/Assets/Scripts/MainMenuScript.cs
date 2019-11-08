@@ -8,8 +8,8 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
-        //SceneManager.LoadScene("");
-        //SceneManager.LoadScene();
+        
+        SceneManager.LoadScene("ZombieScene");
 
     }
 
@@ -18,4 +18,6 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
 
     }
+
+    
 }
