@@ -42,6 +42,7 @@ public class ZombieSceneManager : MonoBehaviour
         if (ZombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("zombie-idle") && weaponSelected==false)
         {
             WeaponPanel.SetActive(true);
+            background.Stop();
             background.clip = choiceAudio;
             background.Play();
         }
@@ -51,6 +52,7 @@ public class ZombieSceneManager : MonoBehaviour
             gun.GetComponent<flaregun>().Shoot();
             shot=true;
             ZombieAnimator.SetBool("playAgony", true);
+            effects.Play();
 
         }
 
@@ -58,6 +60,7 @@ public class ZombieSceneManager : MonoBehaviour
         {
             knifeAnimator.SetBool("spinKnife", true);
             ZombieAnimator.SetBool("playAgony", true);
+            effects.Play();
         }
         
     }
@@ -72,9 +75,10 @@ public class ZombieSceneManager : MonoBehaviour
     public void SelectGun()
     {
         weaponSelected=true;
-        weapon=0;
+        weapon = 0;
         WeaponPanel.SetActive(false);
-        gun.transform.position= new Vector3(0,0,0);
+        gun.transform.position = new Vector3(0,0,0);
+        background.Stop();
         background.clip = gameplayAudio;
         background.Play();
         
@@ -83,11 +87,12 @@ public class ZombieSceneManager : MonoBehaviour
 
     public void SelectKnife()
     {
-        weapon=1;
+        weapon = 1;
         weaponSelected=true;
         WeaponPanel.SetActive(false);
         knife.transform.position= new Vector3(0,0,0);
-        knifeAnimator = knifeAnimator.GetComponent<Animator>();
+        knifeAnimator = knife.GetComponent<Animator>();
+        background.Stop();
         background.clip = gameplayAudio;
         background.Play();
 
