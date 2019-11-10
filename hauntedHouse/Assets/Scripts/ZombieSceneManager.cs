@@ -13,8 +13,11 @@ public class ZombieSceneManager : MonoBehaviour
     public GameObject gun;
     public GameObject knife;
     Animator knifeAnimator;
+    Rigidbody kniferb;
+    bool knifePositioned = false;
+    bool knifeShot = false;
 
-    bool weaponSelected;
+    bool weaponSelected = false;
 
     //0 means gun, 1 means knife
     int weapon;
@@ -32,6 +35,7 @@ public class ZombieSceneManager : MonoBehaviour
     void Start()
     {
         ZombieAnimator = ZombieGirl.GetComponent<Animator>();
+        
         background.clip = gameplayAudio;
         background.Play();
         
@@ -58,9 +62,20 @@ public class ZombieSceneManager : MonoBehaviour
 
         if(weaponSelected==true && weapon==1) //knife
         {
-            knifeAnimator.SetBool("spinKnife", true);
-            ZombieAnimator.SetBool("playAgony", true);
-            effects.Play();
+            //knifeAnimator.SetBool("spinKnife", true);
+            if(! knifePositioned){
+                knife.transform.position= new Vector3(-2.16f, -1f, -3f);
+                knifePositioned=true;
+            }
+            if(! knifeShot){
+                Vector3 direction = (ZombieGirl.transform.position - knife.transform.position).normalized;
+                kniferb.AddForce(direction*100, ForceMode.Force);
+                ZombieAnimator.SetBool("playAgony", true);
+                effects.Play();
+                knifeShot=true;
+
+            }
+            
         }
         
     }
@@ -92,6 +107,7 @@ public class ZombieSceneManager : MonoBehaviour
         WeaponPanel.SetActive(false);
         knife.transform.position= new Vector3(0,0,0);
         knifeAnimator = knife.GetComponent<Animator>();
+        kniferb = knife.GetComponent<Rigidbody>();
         background.Stop();
         background.clip = gameplayAudio;
         background.Play();

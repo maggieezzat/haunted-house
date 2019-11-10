@@ -9,7 +9,7 @@ public class MainMenuScript : MonoBehaviour
     public void StartGame()
     {
         
-        SceneManager.LoadScene("ZombieScene");
+        SceneManager.LoadScene("RoomSelection");
 
     }
 
@@ -18,6 +18,26 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
 
     }
+
+    public void loadZombieScene()
+    {
+        SceneManager.LoadScene("ZombieScene");
+
+    }
+
+    public void loadWizardScene()
+    {
+        SceneManager.LoadScene("");
+
+    }
+
+    public void backToMain()
+    {
+        SceneManager.LoadScene("MainMenu");
+
+    }
+
+
 
     
 }
