@@ -28,6 +28,8 @@ public class ZombieSceneManager : MonoBehaviour
     public AudioClip gameplayAudio;
     public AudioClip choiceAudio;
 
+    bool choiceAudioPlaying = false;
+
     public AudioSource effects;
     public AudioClip agonySound;
 
@@ -43,12 +45,13 @@ public class ZombieSceneManager : MonoBehaviour
 
     void Update()
     {
-        if (ZombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("zombie-idle") && weaponSelected==false)
+        if (ZombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("zombie-idle") && weaponSelected==false && !choiceAudioPlaying)
         {
             WeaponPanel.SetActive(true);
             background.Stop();
             background.clip = choiceAudio;
             background.Play();
+            choiceAudioPlaying = true;
         }
 
         if(weaponSelected==true && weapon==0 && shot==false) //gun
