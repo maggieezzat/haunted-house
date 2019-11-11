@@ -334,11 +334,19 @@ MonoBehaviour:
       m_Calls: []
   m_text: '1. Main Menu Music:
 
+    https://www.youtube.com/watch?v=H9D8fAC6CoU
+
     2. Game Play Music:
 
-    3. Choice1 Music:
+    https://www.youtube.com/watch?v=Ow61u1FBfNk
 
-    4. Choice2 Music:
+    3. Weapon Choices Music:
+
+    http://soundbible.com/2046-Incoming-Suspense.html
+
+    4. Room Choice Music:
+
+    https://www.youtube.com/watch?v=OmL9FfEWjrc
 
     5. Animations Sound Effects:
 
@@ -1723,7 +1731,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3c15745686a7b744e9d4255d170993b1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2cb70aa6a6c805642a6097a92a8071e0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
