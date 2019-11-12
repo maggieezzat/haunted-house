@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: b29ecf6c6d8bc074fb2fa0418d400134
+guid: 2c31c8db028d2f749b44f34e545097a2
 labels:
 - Dark
 - Fantasy
 - Light
-NativeFormatImporter:
+PrefabImporter:
   externalObjects: {}
-  mainObjectFileID: 100100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

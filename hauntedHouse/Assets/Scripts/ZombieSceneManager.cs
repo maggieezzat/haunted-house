@@ -65,17 +65,14 @@ public class ZombieSceneManager : MonoBehaviour
 
         if(weaponSelected==true && weapon==1) //knife
         {
-            //knifeAnimator.SetBool("spinKnife", true);
-            if(! knifePositioned){
-                knife.transform.position= new Vector3(-2.16f, -1f, -3f);
-                knifePositioned=true;
-            }
+
             if(! knifeShot){
-                Vector3 direction = (ZombieGirl.transform.position - knife.transform.position).normalized;
-                kniferb.AddForce(direction*100, ForceMode.Force);
+                knifeAnimator.SetBool("spinKnife", true);
+                kniferb.AddForce(knife.transform.forward*120f, ForceMode.Impulse);
                 ZombieAnimator.SetBool("playAgony", true);
                 effects.Play();
                 knifeShot=true;
+                print("hi");
 
             }
             
@@ -108,7 +105,6 @@ public class ZombieSceneManager : MonoBehaviour
         weapon = 1;
         weaponSelected=true;
         WeaponPanel.SetActive(false);
-        knife.transform.position= new Vector3(0,0,0);
         knifeAnimator = knife.GetComponent<Animator>();
         kniferb = knife.GetComponent<Rigidbody>();
         background.Stop();

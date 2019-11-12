@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: 1ae0024b38f872845858e81222f5beac
+guid: 4dae76a79e6a1fc439eeeff2303f9ab2
 labels:
 - Dark
 - Fantasy
 - Furniture
 - Interior
-NativeFormatImporter:
+PrefabImporter:
   externalObjects: {}
-  mainObjectFileID: 100100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -27,7 +27,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void loadWizardScene()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("VampireScene");
 
     }
 

@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 0322a304fb9696e458d22e11b9c7c5a7
+guid: cdce37a043d9862478013f3882a0ed26
 labels:
 - Architecture
 - Stone
 - Tile
-NativeFormatImporter:
+PrefabImporter:
   externalObjects: {}
-  mainObjectFileID: 100100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 278e8eacf74c6154ebc173a666e00c27
+guid: 1c9d5a281596d5c44ab10cbce130ba21
 labels:
 - Architecture
 - Fantasy
 - Tile
-NativeFormatImporter:
+PrefabImporter:
   externalObjects: {}
-  mainObjectFileID: 100100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoomSelection.unity
     guid: bc9cd6b749547674390497f34e354840
+  - enabled: 1
+    path: Assets/Scenes/VampireScene.unity
+    guid: bb67958190819d24ba5636135ec3860b
   m_configObjects: {}
