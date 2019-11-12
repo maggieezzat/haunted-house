@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FollowHand : MonoBehaviour
 {
@@ -22,5 +23,12 @@ public class FollowHand : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         transform.GetChild(1).gameObject.SetActive(true);
         print("heart");
+    }
+
+
+    public void backToMain()
+    {
+        SceneManager.LoadScene("MainMenu");
+
     }
 }
