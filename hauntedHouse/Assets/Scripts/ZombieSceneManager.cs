@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class ZombieSceneManager : MonoBehaviour
 {
 
     public GameObject WeaponPanel;
-    public GameObject ZombieGirl;
-    Animator ZombieAnimator;
+    public Animator ZombieAnimator;
+    public Animator AkaiAnimator;
+    Transform AkaiRightHand;
+    Transform AkaiLeftHand;
+    public Vector3 gunHoldingOffset;
+    public Vector3 gunIdleOffset;
+
+    public Vector3 knifeOffset;
+    public Transform ZombieGirl;
 
     public GameObject gun;
     public GameObject knife;
@@ -20,9 +28,9 @@ public class ZombieSceneManager : MonoBehaviour
     bool weaponSelected = false;
 
     //0 means gun, 1 means knife
-    int weapon;
+    int weapon = -1;
 
-    bool shot = false;
+    bool gunShot = false;
 
     public AudioSource background;
     public AudioClip gameplayAudio;
@@ -33,18 +41,47 @@ public class ZombieSceneManager : MonoBehaviour
     public AudioSource effects;
     public AudioClip agonySound;
 
+    Transform head;
 
-    void Start()
-    {
-        ZombieAnimator = ZombieGirl.GetComponent<Animator>();
-        
+    Transform spine;
+
+
+    public CinemachineVirtualCamera vcm_zombieStand;
+    public CinemachineVirtualCamera vcm_kill;
+    public CinemachineVirtualCamera vcm_zombieWalk;
+
+    void Awake() {
+        head = ZombieAnimator.GetBoneTransform(HumanBodyBones.Head);
+        spine = ZombieAnimator.GetBoneTransform(HumanBodyBones.Spine);
         background.clip = gameplayAudio;
         background.Play();
+        vcm_zombieStand.m_LookAt = head;
+        vcm_zombieWalk.m_Follow = head;
+        //vcm_zombieWalk.m_Follow = spine;
+    }
+    void Start()
+    {
+        //head = ZombieAnimator.GetBoneTransform(HumanBodyBones.Neck);
+        background.clip = gameplayAudio;
+        background.Play();
+        AkaiRightHand = AkaiAnimator.GetBoneTransform(HumanBodyBones.RightHand);
+        AkaiLeftHand = AkaiAnimator.GetBoneTransform(HumanBodyBones.LeftHand);
+        //vcm1_stand.m_Follow = ZombieGirl;
+        knife.transform.position = AkaiLeftHand.position;
         
     }
 
     void Update()
     {
+        if (ZombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("zombie-standup")){
+
+            vcm_zombieStand.Priority = 10;
+        }
+
+        if (ZombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("zombie-walk")){
+            vcm_zombieStand.Priority = 0;
+            vcm_zombieWalk.Priority = 10;
+        }
         if (ZombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("zombie-idle") && weaponSelected==false && !choiceAudioPlaying)
         {
             WeaponPanel.SetActive(true);
@@ -52,30 +89,52 @@ public class ZombieSceneManager : MonoBehaviour
             background.clip = choiceAudio;
             background.Play();
             choiceAudioPlaying = true;
+
+            vcm_zombieWalk.Priority =0;
+            vcm_kill.Priority = 10;
         }
 
-        if(weaponSelected==true && weapon==0 && shot==false) //gun
+
+        gun.transform.position = AkaiRightHand.position + gunIdleOffset;
+        
+        if(weaponSelected==true && weapon==0) //gun
         {
-            gun.GetComponent<flaregun>().Shoot();
-            shot=true;
-            ZombieAnimator.SetBool("playAgony", true);
-            effects.Play();
+            gun.transform.position = AkaiRightHand.position + gunHoldingOffset;
+           
+            if(!gunShot){
+                gun.GetComponent<flaregun>().Shoot();
+                ZombieAnimator.SetBool("playAgony", true);
+                effects.Play();
+                gunShot=true;
+
+            }
 
         }
 
-        if(weaponSelected==true && weapon==1) //knife
+        if(weaponSelected==true && weapon==1 )  //knife
         {
-
-            if(! knifeShot){
+            if(!knifeShot ){
                 knifeAnimator.SetBool("spinKnife", true);
-                kniferb.AddForce(knife.transform.forward*120f, ForceMode.Impulse);
+                Transform chest = ZombieAnimator.GetBoneTransform(HumanBodyBones.Chest);
+                knife.transform.LookAt(chest);
+                //Vector3 direction = (chest.position - knife.transform.position).normalized;
+                //knife.transform.position = AkaiLeftHand.position;
+                //kniferb.AddForce(knife.transform.forward*120f, ForceMode.Impulse);
+                //kniferb.AddForce(direction*220f, ForceMode.Impulse);
                 ZombieAnimator.SetBool("playAgony", true);
                 effects.Play();
                 knifeShot=true;
-                print("hi");
+            }
+            else{
+                knife.transform.Translate(0,0,0.3f);
 
             }
+
+        }
+        else{
             
+            knife.transform.position = AkaiLeftHand.position + knifeOffset;
+
         }
         
     }
@@ -84,15 +143,15 @@ public class ZombieSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
 
-
     }
 
     public void SelectGun()
     {
+        AkaiAnimator.SetBool("isGun", true);
         weaponSelected=true;
         weapon = 0;
         WeaponPanel.SetActive(false);
-        gun.transform.position = new Vector3(0,0,0);
+
         background.Stop();
         background.clip = gameplayAudio;
         background.Play();
@@ -102,11 +161,14 @@ public class ZombieSceneManager : MonoBehaviour
 
     public void SelectKnife()
     {
+        AkaiAnimator.SetBool("isKnife", true);
         weapon = 1;
         weaponSelected=true;
         WeaponPanel.SetActive(false);
+        
         knifeAnimator = knife.GetComponent<Animator>();
         kniferb = knife.GetComponent<Rigidbody>();
+
         background.Stop();
         background.clip = gameplayAudio;
         background.Play();

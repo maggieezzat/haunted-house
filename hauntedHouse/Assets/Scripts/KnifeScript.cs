@@ -16,7 +16,6 @@ public class KnifeScript : MonoBehaviour
     {
         rb = transform.GetComponent<Rigidbody>();
         chest = zombieAnimator.GetBoneTransform(HumanBodyBones.UpperChest);
-        //knifeAnimator = transform.GetComponent<Animator>();
         
     }
 
@@ -33,7 +32,6 @@ public class KnifeScript : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         knifeAnimator.SetBool("spinKnife", false);
-        print("trigger");
         follow = true;
 
     }
