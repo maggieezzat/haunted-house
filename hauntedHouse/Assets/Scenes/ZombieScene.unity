@@ -648,7 +648,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479669024}
-  m_LocalRotation: {x: 0.21746083, y: -0.36985874, z: 0.08950944, w: 0.89883447}
+  m_LocalRotation: {x: 0.21803604, y: -0.36402953, z: 0.08809888, w: 0.90121114}
   m_LocalPosition: {x: 0.64, y: 0.77, z: 0.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1779,7 +1779,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.008632986, g: 0.7948748, b: 0.9150943, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1890,7 +1890,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -62, y: 14.999939}
+  m_AnchoredPosition: {x: -62, y: 14.999878}
   m_SizeDelta: {x: 190.5, y: 56}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1484752117
@@ -2205,7 +2205,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.7369876, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -3443,6 +3443,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: akai_e_espiritu
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 490d9d067f5258345a434f8a228e89eb,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1a29afb0526cfd344b57e0b5797a885c, type: 2}
+    - target: {fileID: -6057140222963153312, guid: 490d9d067f5258345a434f8a228e89eb,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed by
+        Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'Spine1'\n\tTransform 'Neck'\n\tTransform
+        'RightHandIndex3'\n\tTransform 'RightHandMiddle1'\n\tTransform 'LeftUpLeg'\n\tTransform
+        'RightHandThumb3'\n\tTransform 'RightHandThumb2'\n\tTransform 'RightLeg'\n\tTransform
+        'LeftFoot'\n\tand more ...\n\tFrom animation clip 'mixamo.com'"
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 490d9d067f5258345a434f8a228e89eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3512,21 +3527,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 490d9d067f5258345a434f8a228e89eb,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1a29afb0526cfd344b57e0b5797a885c, type: 2}
-    - target: {fileID: -6057140222963153312, guid: 490d9d067f5258345a434f8a228e89eb,
-        type: 3}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed by
-        Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'Spine1'\n\tTransform 'Neck'\n\tTransform
-        'RightHandIndex3'\n\tTransform 'RightHandMiddle1'\n\tTransform 'LeftUpLeg'\n\tTransform
-        'RightHandThumb3'\n\tTransform 'RightHandThumb2'\n\tTransform 'RightLeg'\n\tTransform
-        'LeftFoot'\n\tand more ...\n\tFrom animation clip 'mixamo.com'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 490d9d067f5258345a434f8a228e89eb, type: 3}
