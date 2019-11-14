@@ -7,6 +7,9 @@ public class FollowLeftHand : MonoBehaviour
     public Animator playerAnim;
     public Vector3 Offset;
     Transform leftHand;
+
+    bool isWon = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +20,7 @@ public class FollowLeftHand : MonoBehaviour
     void Update()
     {
         transform.position = leftHand.position + Offset;
+        
     }
+
 }
