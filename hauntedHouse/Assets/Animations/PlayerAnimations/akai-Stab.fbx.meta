@@ -58,7 +58,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.5245098
+        functionName: showHeart
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: a2a509b17d7aeeb418d72d759dd2c1c8,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.2584746
+        functionName: playStabbingSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 266cf508016481e4f9c198d2e634dda3,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

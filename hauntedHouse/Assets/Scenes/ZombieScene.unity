@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -648,7 +648,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479669024}
-  m_LocalRotation: {x: 0.21803549, y: -0.36403573, z: 0.08809998, w: 0.9012086}
+  m_LocalRotation: {x: 0.21666917, y: -0.37771252, z: 0.09140893, w: 0.8955625}
   m_LocalPosition: {x: 0.64, y: 0.77, z: 0.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3010,6 +3010,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4.545574, z: 0.53180695}
   m_Center: {x: -0, y: 1.7727866, z: -0.23409653}
+--- !u!114 &1792501044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792501041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1412bf1a2ade045939c421ddb048cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1847163001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3563,21 +3575,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: akai_e_espiritu
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 490d9d067f5258345a434f8a228e89eb,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1a29afb0526cfd344b57e0b5797a885c, type: 2}
-    - target: {fileID: -6057140222963153312, guid: 490d9d067f5258345a434f8a228e89eb,
-        type: 3}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed by
-        Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'Spine1'\n\tTransform 'Neck'\n\tTransform
-        'RightHandIndex3'\n\tTransform 'RightHandMiddle1'\n\tTransform 'LeftUpLeg'\n\tTransform
-        'RightHandThumb3'\n\tTransform 'RightHandThumb2'\n\tTransform 'RightLeg'\n\tTransform
-        'LeftFoot'\n\tand more ...\n\tFrom animation clip 'mixamo.com'"
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 490d9d067f5258345a434f8a228e89eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3647,6 +3644,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 490d9d067f5258345a434f8a228e89eb,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1a29afb0526cfd344b57e0b5797a885c, type: 2}
+    - target: {fileID: -6057140222963153312, guid: 490d9d067f5258345a434f8a228e89eb,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed by
+        Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'Spine1'\n\tTransform 'Neck'\n\tTransform
+        'RightHandIndex3'\n\tTransform 'RightHandMiddle1'\n\tTransform 'LeftUpLeg'\n\tTransform
+        'RightHandThumb3'\n\tTransform 'RightHandThumb2'\n\tTransform 'RightLeg'\n\tTransform
+        'LeftFoot'\n\tand more ...\n\tFrom animation clip 'mixamo.com'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 490d9d067f5258345a434f8a228e89eb, type: 3}

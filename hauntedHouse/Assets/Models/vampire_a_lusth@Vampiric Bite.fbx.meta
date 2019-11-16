@@ -63,7 +63,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.4242273
+        functionName: playVampireBite
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 266cf508016481e4f9c198d2e634dda3,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4362745
+        functionName: OnStab
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 3bb135325cd3cfc4ca48d53f437ae11d,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
