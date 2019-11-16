@@ -8,6 +8,10 @@ public class MiddleFinger : MonoBehaviour
     public GameObject spell;
     public int speed;
     GameObject bisho;
+
+    public AudioSource audio;
+    public AudioClip castingSpell;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +27,12 @@ public class MiddleFinger : MonoBehaviour
     }
 
     public void yalla(){
-     Debug.Log("I am a spell");
-     bisho = Instantiate(spell, new Vector3(-2.8f, -2, 6.84f),  new Quaternion());
-    //  bisho.transform.parent = gameObject.transform;   
-     Invoke("move",2.5f);
+        Debug.Log("I am a spell");
+        bisho = Instantiate(spell, new Vector3(-2.8f, -3.3f, 6.84f),  new Quaternion());
+        Invoke("move",2.5f);
+        audio.clip = castingSpell;
+        audio.Play();
+
     }
     void move(){
         Invoke("destroy",5);
@@ -40,6 +46,6 @@ public class MiddleFinger : MonoBehaviour
     }
 
     public void playCastingSound(){
-        gameObject.GetComponent<AudioSource>().Play();
+        
     }
 }

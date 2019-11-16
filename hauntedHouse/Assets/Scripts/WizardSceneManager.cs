@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class WizardSceneManager : MonoBehaviour
 {
@@ -13,10 +15,35 @@ public class WizardSceneManager : MonoBehaviour
     bool doIt = true;
 
     public Animator wizardAnimator;
+    public Animator playerAnimator;
 
+    public AudioSource background;
+    public AudioClip gameAudio;
+    public AudioClip choiceAudio;
+
+    public AudioSource effects;
+    public AudioClip wizardCasting;
+    public AudioClip spell1;
+    public AudioClip spell2;
+
+    public CinemachineVirtualCamera topCam;
+    public CinemachineVirtualCamera playerCam;
+    public CinemachineVirtualCamera wizardCamera;
     void Start()
     {
+        topCam.Priority = 10;
+        playerCam.Priority = 0;
+        wizardCamera.Priority = 0;
         Invoke("activatePanel", 10);
+        Invoke("switchCam", 3);
+        background.clip = gameAudio;
+        background.Play();
+    }
+
+    void switchCam()
+    {
+        topCam.Priority = 0;
+        wizardCamera.Priority = 10;
     }
 
     // Update is called once per frame
@@ -25,13 +52,13 @@ public class WizardSceneManager : MonoBehaviour
         if(weaponSelected){
             if(doIt){
                 if(crucio){
-                    Instantiate(red, new Vector3(-2.8f, -2, 0.5f),  new Quaternion());
+                    Instantiate(red, new Vector3(-2.8f, -3.3f, 0.5f),  new Quaternion());
                     Invoke("die", 0);
                     doIt = false;
                     
                 }
                 else{
-                    Instantiate(blue, new Vector3(-2.8f, -2, 0.5f),  new Quaternion());
+                    Instantiate(blue, new Vector3(-2.8f, -3.3f, 0.5f),  new Quaternion());
                     doIt = false;
                     Invoke("die", 0);
                 }
@@ -47,25 +74,56 @@ public class WizardSceneManager : MonoBehaviour
     }
 
     void activatePanel(){
+        playerAnimator.SetBool("casting", true);
         WeaponPanel.SetActive(true);
-
+        background.Stop();
+        background.clip = choiceAudio;
+        background.Play();
+        playerCam.Priority = 30;
+        wizardCamera.Priority = 0;
+        topCam.Priority = 0;
     }
 
         public void SelectCrucio()
     {
+        background.Stop();
+        background.clip = gameAudio;
+        background.Play();
+
+        effects.Stop();
+        effects.clip = spell1;
+        effects.Play();
+
         weaponSelected=true;
         crucio = true;
         WeaponPanel.SetActive(false);
+        wizardCamera.Priority = 30;
+        playerCam.Priority = 0;
         Debug.Log("Red spell");
 
     }
 
     public void SelectImperio()
     {
-        weaponSelected=true;
+        background.Stop();
+        background.clip = gameAudio;
+        background.Play();
+
+        effects.Stop();
+        effects.clip = spell2;
+        effects.Play();
+
+        weaponSelected = true;
         WeaponPanel.SetActive(false);
+        wizardCamera.Priority = 35;
+        playerCam.Priority = 0;
         Debug.Log("Blue spell");
 
 
+    }
+
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
