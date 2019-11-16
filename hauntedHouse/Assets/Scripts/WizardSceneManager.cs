@@ -15,6 +15,7 @@ public class WizardSceneManager : MonoBehaviour
     bool doIt = true;
 
     public Animator wizardAnimator;
+    public Animator playerAnimator;
 
     public AudioSource background;
     public AudioClip gameAudio;
@@ -25,12 +26,24 @@ public class WizardSceneManager : MonoBehaviour
     public AudioClip spell1;
     public AudioClip spell2;
 
+    public CinemachineVirtualCamera topCam;
+    public CinemachineVirtualCamera playerCam;
     public CinemachineVirtualCamera wizardCamera;
     void Start()
     {
+        topCam.Priority = 10;
+        playerCam.Priority = 0;
+        wizardCamera.Priority = 0;
         Invoke("activatePanel", 10);
+        Invoke("switchCam", 3);
         background.clip = gameAudio;
         background.Play();
+    }
+
+    void switchCam()
+    {
+        topCam.Priority = 0;
+        wizardCamera.Priority = 10;
     }
 
     // Update is called once per frame
@@ -61,11 +74,14 @@ public class WizardSceneManager : MonoBehaviour
     }
 
     void activatePanel(){
+        playerAnimator.SetBool("casting", true);
         WeaponPanel.SetActive(true);
         background.Stop();
         background.clip = choiceAudio;
         background.Play();
-
+        playerCam.Priority = 30;
+        wizardCamera.Priority = 0;
+        topCam.Priority = 0;
     }
 
         public void SelectCrucio()
@@ -81,6 +97,8 @@ public class WizardSceneManager : MonoBehaviour
         weaponSelected=true;
         crucio = true;
         WeaponPanel.SetActive(false);
+        wizardCamera.Priority = 30;
+        playerCam.Priority = 0;
         Debug.Log("Red spell");
 
     }
@@ -97,6 +115,8 @@ public class WizardSceneManager : MonoBehaviour
 
         weaponSelected = true;
         WeaponPanel.SetActive(false);
+        wizardCamera.Priority = 35;
+        playerCam.Priority = 0;
         Debug.Log("Blue spell");
 
 
