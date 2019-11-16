@@ -22,12 +22,14 @@ public class MainMenuScript : MonoBehaviour
     public void loadZombieScene()
     {
         SceneManager.LoadScene("ZombieScene");
+        print("load zombie");
 
     }
 
     public void loadWizardScene()
     {
-        SceneManager.LoadScene("VampireScene");
+        SceneManager.LoadScene("WizardScene");
+        print("load wizard");
 
     }
 

@@ -26,6 +26,8 @@ public class WizardSceneManager : MonoBehaviour
     public AudioClip spell1;
     public AudioClip spell2;
 
+    public AudioClip wizardDie;
+
     public CinemachineVirtualCamera topCam;
     public CinemachineVirtualCamera playerCam;
     public CinemachineVirtualCamera wizardCamera;
@@ -53,14 +55,14 @@ public class WizardSceneManager : MonoBehaviour
             if(doIt){
                 if(crucio){
                     Instantiate(red, new Vector3(-2.8f, -3.3f, 0.5f),  new Quaternion());
-                    Invoke("die", 0);
+                    Invoke("die", 3);
                     doIt = false;
                     
                 }
                 else{
                     Instantiate(blue, new Vector3(-2.8f, -3.3f, 0.5f),  new Quaternion());
                     doIt = false;
-                    Invoke("die", 0);
+                    Invoke("die", 3);
                 }
 
             }
@@ -70,6 +72,11 @@ public class WizardSceneManager : MonoBehaviour
     void  die(){
         Debug.Log("Die Mother fucker");
         wizardAnimator.SetBool("defeated", true);
+        background.Stop();
+
+        effects.Stop();
+        effects.clip = wizardDie;
+        effects.Play();
 
     }
 

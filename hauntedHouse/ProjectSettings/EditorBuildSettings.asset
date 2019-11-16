@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VampireScene.unity
     guid: bb67958190819d24ba5636135ec3860b
+  - enabled: 1
+    path: Assets/Scenes/WizardScene.unity
+    guid: cbdf598ad4ae50c019c7d81ecc1107d4
   m_configObjects: {}

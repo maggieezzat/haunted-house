@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -350,13 +350,19 @@ MonoBehaviour:
 
     5. Animations Sound Effects:
 
+    https://freesound.org/home/
+
+    https://www.youtube.com/
+
     6. Buttons Font: https://www.1001fonts.com/csnpwdt-nfi-font.html
 
     7. Main Menu Background:
 
     https://static01.nyt.com/images/2012/10/25/garden/25HAUNTED_SPAN/25HAUNTED_SPAN-jumbo.jpg
 
+    8. Models and Animations:
 
+    https://www.mixamo.com/
 
 '
   m_isRightToLeft: 0
