@@ -36,6 +36,7 @@ public class WizardSceneManager : MonoBehaviour
         topCam.Priority = 10;
         playerCam.Priority = 0;
         wizardCamera.Priority = 0;
+        Invoke("walkPlayer", 8);
         Invoke("activatePanel", 10);
         Invoke("switchCam", 3);
         background.clip = gameAudio;
@@ -72,6 +73,14 @@ public class WizardSceneManager : MonoBehaviour
     void  die(){
         Debug.Log("Die Mother fucker");
         wizardAnimator.SetBool("defeated", true);
+        if(crucio){
+            wizardAnimator.SetBool("spell1Die", true);
+            wizardAnimator.SetBool("spell2Explode", false);
+        }
+        else{
+            wizardAnimator.SetBool("spell2Explode", true);
+            wizardAnimator.SetBool("spell1Die", false);
+        }
         background.Stop();
 
         effects.Stop();
@@ -82,11 +91,12 @@ public class WizardSceneManager : MonoBehaviour
 
     void activatePanel(){
         playerAnimator.SetBool("casting", true);
+        //playerAnimator.SetTrigger("walk");
         WeaponPanel.SetActive(true);
         background.Stop();
         background.clip = choiceAudio;
         background.Play();
-        playerCam.Priority = 30;
+        //playerCam.Priority = 30;
         wizardCamera.Priority = 0;
         topCam.Priority = 0;
     }
@@ -126,6 +136,12 @@ public class WizardSceneManager : MonoBehaviour
         playerCam.Priority = 0;
         Debug.Log("Blue spell");
 
+
+    }
+
+    public void walkPlayer(){
+        playerAnimator.SetTrigger("walk");
+        playerCam.Priority = 30;
 
     }
 
